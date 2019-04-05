@@ -1,0 +1,24 @@
+$def with(datos)
+<br>
+<section class="text-center">
+        <img class="rounded-circle" width="140" height="140" src="/static/files/boy.png" ><br>
+        <h1 class="text-center"> Asesor: $datos.correo</h>
+</section>
+<br>
+<br>
+<section class="container">
+    <h3 class="text-left"><img src="/static/files/id-card.png" height="30" width="30">  ID:</h3><input type="text" class="form-control" readonly="true" value="$datos.id_as" id="id_as" name="id_as">
+    <br>
+    <h3 class="text-left"><img src="/static/files/user-silhouette.png" height="30" width="30">  Correo:</h3><input type="text" class="form-control" readonly="true" value="$datos.correo" id="correo" name="correp">
+    <br>
+    <h3 class="text-left"><img src="/static/files/phone-receiver.png" height="30" width="30">  Horario:</h3>
+    <br>
+    <h3 class="text-left"><img src="/static/files/opened-email-envelope.png" height="30" width="30">  Habilidades:</h3><textarea type="text" class="form-control"  readonly="true" value="$datos.habilidades" id="habilidades" name="habilidades" rows="5"></textarea>
+    <br>
+    <h3 class="text-left"><img src="/static/files/address.png" height="30" width="30">  Grado:</h3><input type="text" class="form-control"  readonly="true" value="$datos.grado" id="grado" name="grado">
+    <br>
+    <h3 class="text-left"><img src="/static/files/address.png" height="30" width="30">  Validado:</h3><input type="text" class="form-control"  readonly="true" value="$datos.validado" id="validado" name="validado">
+    <br>
+    <a href="/insert_asesoria"><button type="button" class="btn btn-success btn-lg btn-block"><img src="/static/files/plus.png" height="40" width="40">  Agregar Asesoria</button></a><br>
+    <a href="/index_asesor"><button type="submit" class="btn btn-warning  btn-lg btn-block">Regresar</button></a>
+</section>
