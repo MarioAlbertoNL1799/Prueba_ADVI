@@ -26,9 +26,9 @@ def num_as(num_as):
 '''
 Metodo para insertar un nuevo registro 
 '''
-def insert_asesoria(dia,hora,tema):
+def insert_asesoria(dia,hora,solicitante,asesor,tema):
     try:
-        return db.insert('asesorias',dia=dia,hora=hora,estado='Pendiente',solicitante=1,asesor=2,tema=tema) # inserta un registro en clientes
+        return db.insert('asesorias',dia=dia,hora=hora,estado='Pendiente',solicitante=solicitante,asesor=asesor,tema=tema) # inserta un registro en clientes
     except Exception as e:
         print "Model insert_asesoria Error ()",format(e.args)
         print "Model insert_asesoria Message {}",format(e.message)
