@@ -17,7 +17,7 @@ class Api_asesor:
                 return json.dumps(asesor_json)
             else:
                 # http://0.0.0.0:8080/api_asesor?user_hash=12345&action=get&id_as=1
-                result = config.model.select_id_as(int(id_as))
+                result = config.model.get_asesor(int(id_as))
                 asesor_json = []
                 asesor_json.append(dict(result))
                 web.header('Content-Type', 'application/json')
@@ -29,9 +29,9 @@ class Api_asesor:
             return json.dumps(asesor_json)
 
 # http://0.0.0.0:8080/api_asesor?user_hash=12345&action=put&id_as=1&product=nuevo&description=nueva&stock=10&purchase_price=1&price_sale=3&product_image=0
-    def put(self, correo,horario,habilidades,grado,validado):
+    def put(self, correo,horario,habilidades,validado):
         try:
-            config.model.insert_asesor(correo,horario,habilidades,grado,validado)
+            config.model.insert_asesor(correo,horario,habilidades,validado)
             asesor_json = '[{200}]'
             web.header('Content-Type', 'application/json')
             return json.dumps(asesor_json)
