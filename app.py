@@ -27,6 +27,8 @@ urls = (
     '/logs/printer', 'application.controllers.logs.printer.Printer',
     '/logs/view/(.+)', 'application.controllers.logs.view.View',
     '/api_asesorias/?', 'application.api.asesorias.api_asesorias.Api_asesorias',
+    '/api_users/?', 'application.api.users.api_users.Api_users',
+    '/api_valoracion/?', 'application.api.valoracion.api_valoracion.Api_valoracion',
 )
 
 app = web.application(urls, globals())

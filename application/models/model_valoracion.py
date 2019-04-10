@@ -4,53 +4,49 @@ import config
 db = config.db
 
 
-def get_all_users():
+def get_all_valoracion():
     try:
-        return db.select('users')
+        return db.select('valoracion')
     except Exception as e:
         print "Model get all Error {}".format(e.args)
         print "Model get all Message {}".format(e.message)
         return None
 
 
-def get_users(user):
+def get_valoracion(num_val):
     try:
-        return db.select('users', where='user=$user', vars=locals())[0]
+        return db.select('valoracion', where='num_val=$num_val', vars=locals())[0]
     except Exception as e:
         print "Model get Error {}".format(e.args)
         print "Model get Message {}".format(e.message)
         return None
 
 
-def delete_users(user):
+def delete_valoracion(num_val):
     try:
-        return db.delete('users', where='user=$user', vars=locals())
+        return db.delete('valoracion', where='num_val=$num_val', vars=locals())
     except Exception as e:
         print "Model delete Error {}".format(e.args)
         print "Model delete Message {}".format(e.message)
         return None
 
 
-def insert_users(nombre,carrera,grado,tipo):
+def insert_valoracion(valor,asesoria):
     try:
-        return db.insert('users',nombre=nombre,
-carrera=carrera,
-grado=grado,
-tipo=tipo)
+        return db.insert('valoracion',valor=valor,
+asesoria=asesoria)
     except Exception as e:
         print "Model insert Error {}".format(e.args)
         print "Model insert Message {}".format(e.message)
         return None
 
 
-def edit_users(user,nombre,carrera,grado,tipo):
+def edit_valoracion(num_val,valor,asesoria):
     try:
-        return db.update('users',user=user,
-nombre=nombre,
-carrera=carrera,
-grado=grado,
-tipo=tipo,
-                  where='user=$user',
+        return db.update('valoracion',num_val=num_val,
+valor=valor,
+asesoria=asesoria,
+                  where='num_val=$num_val',
                   vars=locals())
     except Exception as e:
         print "Model update Error {}".format(e.args)
