@@ -51,9 +51,9 @@ class Api_asesor:
             return None
 
 # http://0.0.0.0:8080/api_asesor?user_hash=12345&action=update&id_as=1&product=nuevo&description=nueva&stock=10&purchase_price=1&price_sale=3&product_image=default.jpg
-    def update(self, id_as, correo,horario,habilidades,grado,validado):
+    def update(self, id_as, correo,horario,habilidades,validado):
         try:
-            config.model.edit_asesor(id_as,correo,horario,habilidades,grado,validado)
+            config.model.edit_asesor(id_as,correo,horario,habilidades,validado)
             asesor_json = '[{200}]'
             web.header('Content-Type', 'application/json')
             return json.dumps(asesor_json)
