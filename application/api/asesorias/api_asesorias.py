@@ -8,7 +8,7 @@ class Api_asesorias:
         try:
             # http://0.0.0.0:8080/api_asesorias?user_hash=12345&action=get
             if num_as is None:
-                result = config.model.get_all_asesorias()
+                result = config.model.select_asesoria()
                 asesorias_json = []
                 for row in result:
                     tmp = dict(row)
