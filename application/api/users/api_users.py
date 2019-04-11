@@ -17,7 +17,7 @@ class Api_users:
                 return json.dumps(users_json)
             else:
                 # http://0.0.0.0:8080/api_users?user_hash=12345&action=get&user=1
-                result = config.model.get_users(int(user))
+                result = config.model.get_users(user)
                 users_json = []
                 users_json.append(dict(result))
                 web.header('Content-Type', 'application/json')
@@ -76,11 +76,16 @@ class Api_users:
         try:
             user_hash = user_data.user_hash  # user validation
             action = user_data.action  # action GET, PUT, DELETE, UPDATE
-            user=user_data.user
-            nombre=user_data.nombre
-            carrera=user_data.carrera
-            grado=user_data.grado
-            tipo=user_data.tipo
+            user=user_data.user
+
+            nombre=user_data.nombre
+
+            carrera=user_data.carrera
+
+            grado=user_data.grado
+
+            tipo=user_data.tipo
+
             # user_hash
             if user_hash == '12345':
                 if action is None:
