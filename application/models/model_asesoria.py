@@ -24,6 +24,28 @@ def num_as(num_as):
         return None
 
 '''
+Metodo para seleccionar un registro que coincida con el numero de asesoria dado
+'''
+def get_asesor(correo):
+    try:
+        return db.select('asesorias', where= 'asesor = $correo', vars=locals())[0] #selecciona el primer registro que coincida con el nombre
+    except Exception as e:
+        print "Model select_num_as Error ()",format(e.args)
+        print "Model select_num_as Message {}",format(e.message)
+        return None
+
+'''
+Metodo para seleccionar un registro que coincida con el numero de asesoria dado
+'''
+def get_solicitante(correo):
+    try:
+        return db.select('asesorias', where= 'solicitante = $correo', vars=locals())[0] #selecciona el primer registro que coincida con el nombre
+    except Exception as e:
+        print "Model select_num_as Error ()",format(e.args)
+        print "Model select_num_as Message {}",format(e.message)
+        return None
+
+'''
 Metodo para insertar un nuevo registro 
 '''
 def insert_asesoria(dia,hora,solicitante,asesor,tema):
