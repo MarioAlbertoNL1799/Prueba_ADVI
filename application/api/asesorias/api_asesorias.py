@@ -75,6 +75,20 @@ class Api_asesorias:
             asesorias_json = '[]'
             web.header('Content-Type', 'application/json')
             return json.dumps(asesorias_json)
+    
+    def get_estado(self, solicitante,estado):
+        try:
+            # http://0.0.0.0:8080/api_asesorias?user_hash=12345&action=get_estado&solicitante="correo"&estado="estado"
+            result = config.model.get_estado(solicitante,estado)
+            asesorias_json = []
+            asesorias_json.append(dict(result))
+            web.header('Content-Type', 'application/json')
+            return json.dumps(asesorias_json)
+        except Exception as e:
+            print "GET Error {}".format(e.args)
+            asesorias_json = '[]'
+            web.header('Content-Type', 'application/json')
+            return json.dumps(asesorias_json)
 
 # http://0.0.0.0:8080/api_asesorias?user_hash=12345&action=put&num_as=1&product=nuevo&description=nueva&stock=10&purchase_price=1&price_sale=3&product_image=0
     def put(self, dia,hora,estado,solicitante,asesor,tema):
@@ -141,6 +155,8 @@ class Api_asesorias:
                     return self.get(num_as)
                 elif action == 'get_asesor':
                     return self.get_asesor(asesor)
+                elif action == 'get_estado':
+                    return self.get_estado(solicitante,estado)
                 elif action == 'get_solicitante':
                     return self.get_solicitante(solicitante)
                 elif action == 'put':

@@ -46,6 +46,17 @@ def get_solicitante(correo):
         return None
 
 '''
+Metodo para seleccionar un registro que coincida con el numero de asesoria dado
+'''
+def get_estado(solicitante,estado):
+    try:
+        return db.query("SELECT * FROM asesorias WHERE solicitante=$solicitante AND estado=$estado") #selecciona el primer registro que coincida con el nombre
+    except Exception as e:
+        print "Model select_num_as Error ()",format(e.args)
+        print "Model select_num_as Message {}",format(e.message)
+        return None
+
+'''
 Metodo para insertar un nuevo registro 
 '''
 def insert_asesoria(dia,hora,solicitante,asesor,tema):
